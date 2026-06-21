@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background-color: #15101C;
+  color: #ECE7F1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Sora', system-ui, sans-serif;
+  color: #ECE7F1;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Shown only when printing / saving to PDF */
+.print-only {
+  display: none;
+}
+
+/* Print / "Save as PDF": flip the dark theme to a clean, ink-friendly document */
+@media print {
+  @page {
+    margin: 18mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  /* Neutralize every dark surface → dark text on white, no shadows */
+  * {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    border-color: #dcdcdc !important;
+    text-shadow: none !important;
+  }
+
+  /* Drop the app chrome and anything explicitly excluded from print */
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #111111 !important;
+  }
+
+  /* Keep cards intact across page breaks */
+  .grid > *,
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+}
