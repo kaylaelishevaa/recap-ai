@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/kaylaelishevaa/recap-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylaelishevaa/recap-ai/actions/workflows/ci.yml)
 
-**[▶ Live demo](https://recapai-web.onrender.com)** &nbsp;·&nbsp; runs in mock mode (no keys). First load may take ~50s while the free instance wakes up.
+**[▶ Live demo](https://recapai-web-production.up.railway.app)** &nbsp;·&nbsp; runs in mock mode, no API keys required.
 
 **Turn a meeting recording or transcript into a structured summary, key decisions, and action items, powered by an LLM and runnable with zero API keys.**
 
@@ -17,7 +17,7 @@
 - **What:** turns a meeting recording or transcript into a structured summary, key decisions, and action items.
 - **Stack:** React / Vite, FastAPI, PostgreSQL, OpenAI (Whisper + GPT-4o).
 - **Standout:** runs with zero API keys via a deterministic mock mode, so anyone can try the full flow offline; real OpenAI swaps in when a key is set.
-- **Run it:** `docker compose up`, or open the [live demo](https://recapai-web.onrender.com).
+- **Run it:** `docker compose up`, or open the [live demo](https://recapai-web-production.up.railway.app).
 
 ---
 
