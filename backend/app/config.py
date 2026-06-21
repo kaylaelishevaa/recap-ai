@@ -1,5 +1,6 @@
 import logging
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 logger = logging.getLogger(__name__)
@@ -7,6 +8,15 @@ logger = logging.getLogger(__name__)
 
 class Settings(BaseSettings):
     database_url: str = "postgresql://postgres:postgres@localhost:5432/recapai"
+
+    @field_validator("database_url")
+    @classmethod
+    def _normalize_db_scheme(cls, v: str) -> str:
+        # Managed providers (Railway, Heroku) hand out "postgres://", but
+        # SQLAlchemy 2.0 only accepts the "postgresql://" scheme.
+        if v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql://", 1)
+        return v
 
     # LLM provider: mock | auto | openai.
     #   mock   → deterministic fabricated output, no keys/network (default for demos)

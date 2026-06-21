@@ -1,4 +1,3 @@
-import os
 import sys
 from logging.config import fileConfig
 from pathlib import Path
@@ -9,15 +8,15 @@ from sqlalchemy import engine_from_config, pool
 # Add backend dir to path so we can import app modules
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from app.config import settings
 from app.database import Base
 from app.models import Meeting  # noqa: F401 — registers model metadata
 
 config = context.config
 
-# Override sqlalchemy.url from environment if available
-db_url = os.environ.get("DATABASE_URL")
-if db_url:
-    config.set_main_option("sqlalchemy.url", db_url)
+# Use the app's settings so the URL is normalized (postgres:// -> postgresql://)
+# and migrations target the same database as the app at runtime.
+config.set_main_option("sqlalchemy.url", settings.database_url)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
