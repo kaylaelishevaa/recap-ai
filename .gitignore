@@ -1,0 +1,43 @@
+# Environment / secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# Databases
+*.db
+*.sqlite3
+
+# Uploads (keep the directories, drop runtime contents at any depth)
+uploads/*
+!uploads/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+coverage/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

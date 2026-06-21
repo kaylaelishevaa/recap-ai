@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# pyflakes (F), pycodestyle errors (E) + warnings (W), isort (I)
+select = ["E", "F", "W", "I"]
+# Black owns line wrapping; the long lines are intentional prompt-text literals.
+ignore = ["E501"]

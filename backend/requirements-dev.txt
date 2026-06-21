@@ -1,0 +1,6 @@
+# Dev/test/CI tooling (installed on top of requirements.txt)
+-r requirements.txt
+pytest
+pytest-asyncio
+ruff
+black
